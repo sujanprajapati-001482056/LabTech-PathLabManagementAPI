@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Results Available - Lab Tech</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #0066cc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .content {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #0066cc;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Lab Tech</h1>
+        <h2>Test Results Available</h2>
+    </div>
+    
+    <div class="content">
+        <p>Dear {{ patient.first_name }} {{ patient.last_name }},</p>
+        
+        <p>Your test results are now available. Here are the details:</p>
+        
+        <ul>
+            <li><strong>Order Number:</strong> {{ order.order_number }}</li>
+            <li><strong>Test Date:</strong> {{ order.created_at|date:"F d, Y" }}</li>
+            <li><strong>Report Number:</strong> {{ report.report_number }}</li>
+        </ul>
+        
+        <p>You can download your complete report using the link below:</p>
+        
+        <a href="{{ report_url }}" class="button">Download Report</a>
+        
+        <p>If you have any questions about your results, please contact your healthcare provider or call us at (123) 456-7890.</p>
+        
+        <p>Thank you for choosing Lab Tech for your laboratory needs.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Lab Tech - Path Lab Management System</p>
+        <p>123 Medical Street, Health City | Phone: (123) 456-7890</p>
+        <p>This is an automated message. Please do not reply to this email.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+/* Lab Tech Custom Theme */
+
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #004499;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+/* General Styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Styles */
+.lab-tech-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.lab-tech-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.lab-tech-header p {
+  margin: 0.5rem 0 0 0;
+  opacity: 0.9;
+}
+
+/* Card Styles */
+.lab-tech-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--primary-color);
+}
+
+.lab-tech-card h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+/* Button Styles */
+.btn-lab-tech {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-lab-tech:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+}
+
+/* Table Styles */
+.lab-tech-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.lab-tech-table th,
+.lab-tech-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.lab-tech-table th {
+  background-color: var(--light-color);
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.lab-tech-table tbody tr:hover {
+  background-color: rgba(0, 102, 204, 0.05);
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-pending {
+  background-color: var(--warning-color);
+  color: var(--dark-color);
+}
+
+.status-processing {
+  background-color: var(--info-color);
+  color: white;
+}
+
+.status-completed {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.status-cancelled {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Form Styles */
+.lab-tech-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lab-tech-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.lab-tech-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.lab-tech-form input,
+.lab-tech-form select,
+.lab-tech-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.lab-tech-form input:focus,
+.lab-tech-form select:focus,
+.lab-tech-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .lab-tech-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .lab-tech-card {
+    padding: 1rem;
+  }
+
+  .lab-tech-table {
+    font-size: 0.875rem;
+  }
+
+  .lab-tech-table th,
+  .lab-tech-table td {
+    padding: 0.5rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .lab-tech-header {
+    background: white !important;
+    color: black !important;
+    border: 2px solid black;
+  }
+
+  .lab-tech-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .btn-lab-tech {
+    display: none;
+  }
+}

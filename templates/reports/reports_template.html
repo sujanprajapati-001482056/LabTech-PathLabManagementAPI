@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Test Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .report-info {
+            margin-bottom: 20px;
+        }
+        .report-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .report-info td {
+            padding: 5px;
+        }
+        .patient-info {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .results {
+            margin-bottom: 30px;
+        }
+        .results table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .results th, .results td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .results th {
+            background-color: #f2f2f2;
+        }
+        .abnormal {
+            color: red;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+        .signature {
+            margin-top: 40px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Lab Tech</div>
+        <div>Path Lab Management System</div>
+        <div>123 Medical Street, Health City</div>
+        <div>Phone: (123) 456-7890 | Email: info@labtech.com</div>
+    </div>
+    
+    <div class="report-info">
+        <table>
+            <tr>
+                <td><strong>Report Number:</strong> {{ report.report_number }}</td>
+                <td><strong>Order Number:</strong> {{ report.test_order.order_number }}</td>
+            </tr>
+            <tr>
+                <td><strong>Report Date:</strong> {{ report.generated_at|date:"F d, Y" }}</td>
+                <td><strong>Status:</strong> {{ report.get_status_display }}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="patient-info">
+        <h3>Patient Information</h3>
+        <table>
+            <tr>
+                <td><strong>Name:</strong> {{ patient.first_name }} {{ patient.last_name }}</td>
+                <td><strong>Gender:</strong> {{ patient.get_gender_display }}</td>
+            </tr>
+            <tr>
+                <td><strong>Date of Birth:</strong> {{ patient.date_of_birth|date:"F d, Y" }}</td>
+                <td><strong>Blood Group:</strong> {{ patient.blood_group|default:"Not specified" }}</td>
+            </tr>
+            <tr>
+                <td><strong>Phone:</strong> {{ patient.phone_number }}</td>
+                <td><strong>Email:</strong> {{ patient.email|default:"Not specified" }}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="results">
+        <h3>Test Results</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test Name</th>
+                    <th>Result</th>
+                    <th>Normal Range</th>
+                    <th>Unit</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr {% if not result.is_normal %}class="abnormal"{% endif %}>
+                    <td>{{ result.test_item.name }}</td>
+                    <td>{{ result.result_value }}</td>
+                    <td>{{ result.test_item.normal_range|default:"N/A" }}</td>
+                    <td>{{ result.test_item.unit|default:"" }}</td>
+                    <td>{% if result.is_normal %}Normal{% else %}Abnormal{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    {% if notes %}
+    <div class="notes">
+        <h3>Notes</h3>
+        <p>{{ notes }}</p>
+    </div>
+    {% endif %}
+    
+    <div class="signature">
+        <p>Verified by: {{ report.finalized_by.get_full_name }}</p>
+        <p>Date: {{ report.finalized_at|date:"F d, Y" }}</p>
+        <p>Signature: _________________________</p>
+    </div>
+    
+    <div class="footer">
+        <p>This report is generated electronically and is valid without signature.</p>
+        <p>Please consult with your healthcare provider for interpretation of these results.</p>
+    </div>
+</body>
+</html>
