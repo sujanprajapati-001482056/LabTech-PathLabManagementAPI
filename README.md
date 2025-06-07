@@ -21,3 +21,25 @@ A scalable, industry-ready backend system for pathology lab management built wit
 - **Database**: SQLite (can be scaled to PostgreSQL or MySQL)
 - **Authentication**: Django built-in authentication
 - **Admin Interface**: Django Admin
+- **API Testing Tool**: 	Postman / Swagger (DRF-YASG)
+
+
+
+
+## 📁 Project Structure
+**LabTech-PathLabManagementAPI/**
+│
+**├── accounts/**        # User authentication & roles
+**├── api/**             # API root configuration
+**├── config/**          # Project settings and URLs
+**├── patients/**        # Patient registration & records
+**├── reports/**         # Test reports & analytics
+**├── static/**          # Static files (CSS, JS, etc.)
+**├── templates/**      # HTML templates (if any)
+**├── tests/**           # Unit & API test cases
+│
+**├── manage.py**
+**├── requirements.txt**
+**├── pytest.ini**
+**└── README.md**
+
