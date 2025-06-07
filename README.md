@@ -43,3 +43,15 @@ A scalable, industry-ready backend system for pathology lab management built wit
 **├── pytest.ini**
 **└── README.md**
 
+
+## 📘 API Documentation
+-**Swagger (DRF YASG) is integrated for interactive API exploration.**
+-**After running the project, visit:**
+-**http://127.0.0.1:8000/swagger/ or http://localhost:8000/swagger/**
+
+## 📜 License
+-**This project is licensed under the BSD 3-Clause License.**
+
+
+## 🔗 Project Link
+-**Github Repo**:https://github.com/sujanprajapati-001482056/LabTech-PathLabManagementAPI.git
